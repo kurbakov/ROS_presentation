@@ -27,6 +27,11 @@ All slides are available here:
 \end{frame}
 
 \section{History of ROS} 
+\begin{frame}
+\begin{center}
+\Huge History of ROS
+\end{center}
+\end{frame}
 \begin{frame}{Early years of ROS, ... - 2007}
 \begin{tabular}{ll}
 \includegraphics[scale=0.08]{images/pr1_clean} 
@@ -84,6 +89,12 @@ ROS2 was released\\
 \end{frame}
 
 \section{Structure of ROS}
+\begin{frame}
+\begin{center}
+\Huge Structure of ROS
+\end{center}
+\end{frame}
+
 \subsection{Catkin workspace}
 \begin{frame}{What is a workspace in ROS}
 \textbf{Workspace} is the folder inside which you are going to be actively developing. Keeping things in a folder with connected development helps keep separation of development models
@@ -192,14 +203,37 @@ More information and examples: \href{http://wiki.ros.org/topic_tools/mux}{ROS mu
 
 \subsection{How to run the robot}
 \begin{frame}{roscore and rosrun}
-just explain the command
+\textbf{roscore} is a collection of nodes and programs that are pre-requisites of a ROS-based system. You \textbf{must} have a roscore running in order for ROS nodes to communicate.
+
+\vfill
+
+\textbf{rosrun} allows you to run an executable in an arbitrary package from anywhere without having to give its full path or cd/roscd there first.
+\vfill
+Example:\\
+\textit{roscore}\\
+\textit{rosrun package node \_parameter:=value}
+\vfill
+For more information, see \href{https://wiki.ros.org/rosbash\#rosrun}{ROS rosrun}, \href{https://wiki.ros.org/roscore}{ROS roscore}
 \end{frame}
 
 \begin{frame}{roslaunch}
-just explain the command
+\textbf{roslaunch} is a tool for easily launching multiple ROS nodes locally and remotely via SSH, as well as setting parameters on the Parameter Server.
+\vfill
+roslaunch takes in one or more XML configuration files (with the .launch extension) that specify the parameters to set and nodes to launch, as well as the machines that they should be run on.
+\vfill
+Example:\\
+\textit{roslaunch package\_name file.launch}
+\vfill
+For more information, see \href{https://wiki.ros.org/roslaunch}{ROS roslaunch}
 \end{frame}
 
 \section{Introduction to Omicron}
+\begin{frame}
+\begin{center}
+\Huge Project OMICRON
+\end{center}
+\end{frame}
+
 \subsection{Team}
 \begin{frame}{Active contributers}
 Michal and Dmytro are cool guys who do the job!
@@ -207,26 +241,54 @@ Michal and Dmytro are cool guys who do the job!
 
 \subsection{Why Omicron}
 \begin{frame}{Why should you use Omicron}
-Omicron is awesome!
+\begin{itemize}
+\item Free, open-source project
+\item Code well optimized to your hardware
+\item Direct access to authors
+\item Great opportunity to learn and contribute
+\item ROS is awesome!
+\end{itemize}
+
 \end{frame}
 
-\subsection{Packages}
+\subsection{High level architecture}
 \begin{frame}{High level description of nodes}
 show a graph how the structure looks like
 \end{frame}
 
-\subsection{Topics}
-\begin{frame}{Topics}
-go through topics and who is doing what
-\end{frame}
-
 \subsection{Message types}
 \begin{frame}{Ackermann message}
-show the structire of the message
+ROS messages for robots using Ackermann steering
+\vfill
+std\_msgs/Header.msg\\
+\begin{tabular}{l|l}
+uint32 seq & consecutively increasing ID\\
+time stamp & stamp.sec: seconds (stamp\_secs) since epoch\\
+           & stamp.nsec: nanoseconds since stamp\_secs\\
+string frame\_id & Frame this data is associated with\\
+\end{tabular}
+\vfill
+ackermann\_msgs/AckermannDrive.msg\\
+\begin{tabular}{l|l}
+float32 steering\_angle & desired virtual angle ($radians$)\\
+float32 steering\_angle\_velocity & desired rate of change ($radians/s$)\\
+float32 speed & desired forward speed ($m/s$)\\
+float32 acceleration & desired acceleration ($m/s^2$)\\
+float32 jerk & desired jerk ($m/s^3$)\\
+\end{tabular}
 \end{frame}
 
-\begin{frame}{Image}
-show the structure of the message
+\begin{frame}{Camera topics}
+In camera we are using standard messages from sensor\_msgs
+\begin{itemize}
+\item Image Message
+\item CompressedImage Message
+\item CameraInfo Message
+\end{itemize}
+\vfill
+For ML node we subscribe to \textit{CompressedImage} from the topic \textit{raspicam\_node/image/compressed}.
+\vfill
+You cam find all information \href{https://wiki.ros.org/sensor\_msgs}{here}
 \end{frame}
 
 \section{Useful links}
@@ -236,6 +298,7 @@ show the structure of the message
 \href{https://www.ros.org/history/}{ROS History, ROS.org}\\
 \href{https://en.wikipedia.org/wiki/Robot_Operating_System}{ROS, wiki page}\\
 \href{http://wiki.ros.org/Industrial/Tutorials}{ROS Industrial}
+\href{https://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber\%28python\%29}{ROS Tutorial for publisher and subscriber}
 \end{frame}
 
 \begin{frame}{Q \& A}
