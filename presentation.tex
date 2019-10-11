@@ -22,10 +22,6 @@ All slides are available here:
 \url{https://github.com/project-omicron/robocar/}
 \end{frame}
 
-\begin{frame}{Table of contents}
-\tableofcontents
-\end{frame}
-
 \section{History of ROS} 
 \begin{frame}
 \begin{center}
@@ -234,74 +230,9 @@ For more information, see \href{https://wiki.ros.org/roslaunch}{ROS roslaunch}
 \end{center}
 \end{frame}
 
-\subsection{Team}
-\begin{frame}{Active contributers}
-Kurbakov Dmytro, TomTom Berlin (ROS nodes, architecture)\\
-Slonina Michal, TomTom Berlin (ML/AI, infrastructure)\\
-Kosiorek Bartosz, TomTom Lodz (Reviewer)\\
-Razniewski Mateusz, TomTom Lodz (Reviewer)\\
-\end{frame}
-
-\subsection{Why Omicron}
-\begin{frame}{Why should you use Omicron}
-\begin{itemize}
-\item Free, open-source project
-\item Code well optimized to your hardware
-\item Direct access to authors
-\item Great opportunity to learn and contribute
-\item ROS is awesome!
-\end{itemize}
-
-\end{frame}
-
 \subsection{High level architecture}
 \begin{frame}{High level description of nodes}
-show a graph how the structure looks like
-\end{frame}
-
-\subsection{Message types}
-\begin{frame}{Ackermann message}
-ROS messages for robots using Ackermann steering
-\vfill
-std\_msgs/Header.msg\\
-\begin{tabular}{l|l}
-uint32 seq & consecutively increasing ID\\
-time stamp & stamp.sec: seconds (stamp\_secs) since epoch\\
-           & stamp.nsec: nanoseconds since stamp\_secs\\
-string frame\_id & Frame this data is associated with\\
-\end{tabular}
-\vfill
-ackermann\_msgs/AckermannDrive.msg\\
-\begin{tabular}{l|l}
-float32 steering\_angle & desired virtual angle ($radians$)\\
-float32 steering\_angle\_velocity & desired rate of change ($radians/s$)\\
-float32 speed & desired forward speed ($m/s$)\\
-float32 acceleration & desired acceleration ($m/s^2$)\\
-float32 jerk & desired jerk ($m/s^3$)\\
-\end{tabular}
-\end{frame}
-
-\begin{frame}{Camera topics}
-In camera we are using standard messages from sensor\_msgs
-\begin{itemize}
-\item Image Message
-\item CompressedImage Message
-\item CameraInfo Message
-\end{itemize}
-\vfill
-For ML node we subscribe to \textit{CompressedImage} from the topic \textit{raspicam\_node/image/compressed}.
-\vfill
-You cam find all information \href{https://wiki.ros.org/sensor\_msgs}{here}
-\end{frame}
-
-\section{Useful links}
-
-\begin{frame}{What to know more?}
-\href{https://spectrum.ieee.org/automaton/robotics/robotics-software/the-origin-story-of-ros-the-linux-of-robotics}{The Origin Story of ROS, the Linux of Robotics}\\
-\href{https://www.ros.org/history/}{ROS History, ROS.org}\\
-\href{https://en.wikipedia.org/wiki/Robot_Operating_System}{ROS, wiki page}\\
-\href{http://wiki.ros.org/Industrial/Tutorials}{ROS Industrial}
-\href{https://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber\%28python\%29}{ROS Tutorial for publisher and subscriber}
+\includegraphics[scale=0.35]{images/omicron_graph} 
 \end{frame}
 
 \begin{frame}{Q \& A}
@@ -314,8 +245,17 @@ LinkedIn: \url{https://linkedin.com/in/dmytro-kurbakov/}\\
 Slonina Michal\\
 Email: michal.slonina@tomtom.com\\
 LinkedIn: \url{https://www.linkedin.com/in/michalslonina/}\\
-
 \end{frame}
+
+
+\begin{frame}{What to know more? Useful links}
+\href{https://spectrum.ieee.org/automaton/robotics/robotics-software/the-origin-story-of-ros-the-linux-of-robotics}{The Origin Story of ROS, the Linux of Robotics}\\
+\href{https://www.ros.org/history/}{ROS History, ROS.org}\\
+\href{https://en.wikipedia.org/wiki/Robot_Operating_System}{ROS, wiki page}\\
+\href{http://wiki.ros.org/Industrial/Tutorials}{ROS Industrial}
+\href{https://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber\%28python\%29}{ROS Tutorial for publisher and subscriber}
+\end{frame}
+
 
 \end{document}
 
